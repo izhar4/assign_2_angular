@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class CommonService {
+    public static studentList:any[] = [];
     baseUrl = environment.baseUrl;
     constructor(private http: HttpClient) { }
 
@@ -18,6 +19,14 @@ export class CommonService {
     getCourseList():Observable<any>{
         const url = this.baseUrl + 'getCourseList';
         return this.http.get(url);
+    }
+
+    public get studentList(){
+        return CommonService.studentList;
+    }
+
+    public set studentList(list:any[]){
+        CommonService.studentList = list;
     }
 
 }

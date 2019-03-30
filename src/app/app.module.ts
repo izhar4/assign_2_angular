@@ -11,6 +11,7 @@ import { HelpInfoComponent } from './help-info/help-info.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AvailableCorsesComponent,
     HelpInfoComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    StudentDetailComponent
   ],
   imports: [
     BrowserModule,

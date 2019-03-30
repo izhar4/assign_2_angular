@@ -17,7 +17,8 @@ export class StudentsComponent implements OnInit {
         if(element.birthDate){
           element.birthDate = new Date(element.birthDate).toDateString();
         }
-      }); 
+      });
+      this._commonService.studentList = this.studentsList; 
     })
   }
 
