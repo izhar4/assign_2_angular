@@ -1,0 +1,32 @@
+<h3>
+  List of students and their course history
+</h3>
+<div class="table-responsive">
+  <table>
+    <tr>
+      <th>Student Id and Academic Program</th>
+      <th>Name</th>
+      <th>Birth Date</th>
+      <th>Email</th>
+      <th>Academic level</th>
+      <th>GPA</th>
+      <th>Course History</th>
+    </tr>
+    <tr *ngFor="let student of studentsList">
+      <td>
+        <p>{{student.studentId}}</p>
+        <p>{{student.academicProgram}}</p>
+      </td>
+      <td>
+        <p>{{student.familyName}},</p>
+        <p>{{student.givenName}}</p>
+      </td>
+      <td>{{student.birthDate}}</td>
+      <td>{{student.email}}</td>
+      <td>{{student.academicLevel}}</td>
+      <td>{{student.gpa}}</td>
+      <td>{{student?.credits?.length}} credits</td>
+      <td><button type="button" >select</button></td>
+    </tr>
+  </table>
+</div>
