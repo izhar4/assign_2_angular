@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../services/common.service';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-student-detail',
   templateUrl: './student-detail.component.html',
@@ -8,9 +8,11 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class StudentDetailComponent implements OnInit {
   studentDetail: any = {};
-  tentativeCourses:any= [];
-  confirmedCourses:any = [];
+  tentativeCourses: any = [];
+  confirmedCourses: any = [];
   studentId: string = '';
+  days = { classMon: 'Monday', classTue: 'Tuesday', classWed: 'Wednesday', classThu: 'Thursday', classFri: 'Friday' };
+
   constructor(private _commonService: CommonService, private _route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -22,9 +24,25 @@ export class StudentDetailComponent implements OnInit {
         if (res.data) {
           this.studentDetail = res.data;
           this._commonService.studentDetail = this.studentDetail;
+          this.tentativeCourses = this.studentDetail.coursesSaved || [];
+          this.mapCourse();
         }
       })
+    } else {
+      this.tentativeCourses = this.studentDetail.coursesSaved || [];
+      this.mapCourse();
     }
+  }
+
+  mapCourse(){
+    this.tentativeCourses.forEach(course => {
+      Object.keys(course).forEach(key => {
+        if (course[key] === 'Y') {
+          const day = course[key];
+          course['day'] = this.days[key];
+        }
+      })
+    })
   }
 
 }

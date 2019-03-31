@@ -2,34 +2,55 @@
   <div style="display:flex; margin-top: 5px;">
     <p>Select courses - {{studentDetail?.givenName}} {{studentDetail?.familyName}}, {{studentDetail?.studentId}}</p>&nbsp;&nbsp;<button
       type="button" class="btn btn-primary" [routerLink]="['/student', this.studentId]">back to detail</button>
-  </div>
+      <p class="action-label">Select courses, then save, or confirm your selections</p>
+     <br>
+      
+    </div>
+    <div style="margin-left: 600px"> <button type="button" class="btn btn-small btn-default" (click)="clear()">clear</button> &nbsp;&nbsp;
+      <button type="button" class="btn btn-small btn-info" (click)="saveCourses()">save for later</button>
+    </div>
+    <br>
+  <div style="display:flex;"> 
+    <div>
+      <p>Possible courses, next term </p>
+      <table>
+        <tr>
 
-  <div>
-    <p>Possible courses, next term </p>
-    <table>
-      <tr>
-          				
-        <th>Course</th>
-        <th>Day and times</th>
-        <th>Enrolled</th>
-        <th>Professor</th>
-        <th>Add/Remove</th>
-      </tr>
+          <th>Course</th>
+          <th>Day and times</th>
+          <th>Enrolled</th>
+          <th>Professor</th>
+          <th>Add/Remove</th>
+        </tr>
 
-      <tr *ngFor="let course of courseList">
-        <td>{{course?.courseCode}} - {{course?.section}}<br> ({{course?.termSectionId}})</td>
-        <td>{{course?.day}}<br>{{course?.classStart}} to {{course?.classEnd}}</td>
-        <td>{{course?.enrolTotal}}</td>
-        <td>{{course?.professor}}</td>
-        <td><button type="button" class="btn btn-small btn-primary">Add</button></td>
-      </tr>
-      <tr>
-        <td>test</td>
-        <td>test</td>
-        <td>test</td>
-        <td>test</td>
-        <td>test</td>
-      </tr>
-    </table>
+        <tr *ngFor="let course of courseList">
+          <td>{{course?.courseCode}} - {{course?.section}}<br> ({{course?.termSectionId}})</td>
+          <td>{{course?.day}}<br>{{course?.classStart}} to {{course?.classEnd}}</td>
+          <td>{{course?.enrolTotal}}</td>
+          <td>{{course?.professor}}</td>
+          <td><button type="button" class="btn btn-small btn-primary" *ngIf="!course.saved" (click)="saveCourse(course)">Add</button><button
+              *ngIf="course?.saved" (click)="removeCourse(course)" type="button" class="btn btn-small btn-danger">remove</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      <p>Selected Courses </p>
+      <table style="width:40%">
+        <tr>
+          <th>Course</th>
+          <th>Day</th>
+          <th>Start</th>
+          <th>End</th>
+        </tr>
+
+        <tr *ngFor="let course of savedCourses">
+          <td>{{course?.courseCode}} - {{course?.section}}<br> ({{course?.termSectionId}})</td>
+          <td>{{course?.day}}</td>
+          <td>{{ course?.classStart}}</td>
+          <td>{{course?.classEnd}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

@@ -47,4 +47,9 @@ export class CommonService {
         const url = this.baseUrl + 'course/' + program;
         return this.http.get(url);
     }
+
+    saveCourses(data:any, id):Observable<any>{
+        const url =this.baseUrl+ 'student/cart/'+ id;
+        return this.http.post(url, {courses: data});
+    }
 }

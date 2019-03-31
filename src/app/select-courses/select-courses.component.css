@@ -14,3 +14,7 @@ table {
   tr:nth-child(even) {
     background-color: #f2f2f2
   }
+
+  .action-label{
+      margin-left: 20px;
+  }

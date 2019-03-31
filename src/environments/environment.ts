@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://desolate-ocean-24021.herokuapp.com/api/'
-  // baseUrl : 'http://localhost:8080/api/'
+   baseUrl: 'https://desolate-ocean-24021.herokuapp.com/api/'
+ // baseUrl : 'http://localhost:8080/api/'
 };
 
 /*

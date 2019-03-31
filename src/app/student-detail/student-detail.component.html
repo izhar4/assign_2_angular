@@ -27,15 +27,11 @@
     </tr>
 
     <tr *ngFor="let course of tentativeCourses">
-      <td>test</td>
-      <td>test</td>
-      <td>test</td>
+      <td>{{course?.term}}</td>
+      <td>{{course?.courseCode}}- {{course?.section}}</td>
+      <td>{{course.day}} {{course?.classStart}} to {{course?.classEnd}}</td>
     </tr>
-    <tr>
-      <td>test</td>
-      <td>test</td>
-      <td>test</td>
-    </tr>
+    
   </table>
 </div>
 <br>
