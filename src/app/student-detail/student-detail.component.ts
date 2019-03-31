@@ -8,19 +8,18 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class StudentDetailComponent implements OnInit {
   studentDetail: any = {};
-  studentId: string = '';
+  // studentId: string = '';
   constructor(private _commonService: CommonService, private _route: ActivatedRoute) { }
 
   ngOnInit() {
     const list = this._commonService.studentList;
-    this.studentId = this._route.snapshot.paramMap.get('id');
-    if(this.studentId){
-      const data = list.filter(data => {
-        return data.studentId === this.studentId;
+    const studentId = this._route.snapshot.paramMap.get('id');
+    if(studentId){
+      this._commonService.getStudentById(studentId).subscribe(res=>{
+        if(res.data){
+          this.studentDetail = res.data;
+        }
       })
-      if(data[0]){
-        this.studentDetail = data[0];
-      }
     }
   }
 

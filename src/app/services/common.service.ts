@@ -29,4 +29,8 @@ export class CommonService {
         CommonService.studentList = list;
     }
 
+    getStudentById(id:string):Observable<any>{
+        const url = this.baseUrl +'getStudent/'+id;
+        return this.http.get(url);
+    }
 }
