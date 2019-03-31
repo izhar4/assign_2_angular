@@ -1,16 +1,11 @@
-ul{
-    list-style: none;
-    font-size: 14px;
-}
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    width: 100%;
+    width: 60%;
     border: 1px solid #ddd;
     font-size: 15px;
   }
-  
+
   th, td {
     text-align: left;
     padding: 16px;
@@ -19,10 +14,3 @@ table {
   tr:nth-child(even) {
     background-color: #f2f2f2
   }
-
-  .detail-div{
-    display:flex;
-    margin-top: 5px;
-  }
-
-  

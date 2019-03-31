@@ -3,13 +3,18 @@
   <h3>Student detail - {{studentDetail?.givenName}} {{studentDetail?.familyName}}, {{studentDetail?.studentId}}</h3>
   &nbsp;&nbsp;<button type="button" class="btn btn-primary" routerLink="/students">back to list</button>
 </div>
-<div>
+<div class="detail-div">
+  <div class="col-md-8"> 
   <ul>
     <li><b>Student ID </b>&nbsp;&nbsp;{{studentDetail?.studentId}}</li>
     <li><b>Name </b>&nbsp;&nbsp;{{studentDetail?.familyName}}, {{studentDetail?.givenName}}</li>
     <li><b>Academic program </b>&nbsp;&nbsp;{{studentDetail?.academicProgram}}, level {{ studentDetail?.academicLevel}}</li>
     <li><b>Grade point average </b>&nbsp;&nbsp;{{studentDetail?.gpa}}</li>
   </ul>
+  </div>
+  <div class="col-md-4">
+    <p>Select courses for next term</p>
+    <button type="button" class="btn btn-primary" [routerLink]="['/select-courses',this.studentId, 'PCA']">Select Courses</button></div>
 </div>
 <br>
 <div>

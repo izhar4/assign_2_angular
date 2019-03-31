@@ -1,0 +1,35 @@
+<div class="container">
+  <div style="display:flex; margin-top: 5px;">
+    <p>Select courses - {{studentDetail?.givenName}} {{studentDetail?.familyName}}, {{studentDetail?.studentId}}</p>&nbsp;&nbsp;<button
+      type="button" class="btn btn-primary" [routerLink]="['/student', this.studentId]">back to detail</button>
+  </div>
+
+  <div>
+    <p>Possible courses, next term </p>
+    <table>
+      <tr>
+          				
+        <th>Course</th>
+        <th>Day and times</th>
+        <th>Enrolled</th>
+        <th>Professor</th>
+        <th>Add/Remove</th>
+      </tr>
+
+      <tr *ngFor="let course of courseList">
+        <td>{{course?.courseCode}} - {{course?.section}}<br> ({{course?.termSectionId}})</td>
+        <td>{{course?.day}}<br>{{course?.classStart}} to {{course?.classEnd}}</td>
+        <td>{{course?.enrolTotal}}</td>
+        <td>{{course?.professor}}</td>
+        <td><button type="button" class="btn btn-small btn-primary">Add</button></td>
+      </tr>
+      <tr>
+        <td>test</td>
+        <td>test</td>
+        <td>test</td>
+        <td>test</td>
+        <td>test</td>
+      </tr>
+    </table>
+  </div>
+</div>

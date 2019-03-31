@@ -6,6 +6,7 @@ import { AvailableCorsesComponent } from './available-corses/available-corses.co
 import { HelpInfoComponent } from './help-info/help-info.component';
 import { AboutComponent } from './about/about.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { SelectCoursesComponent } from './select-courses/select-courses.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'available-courses', component: AvailableCorsesComponent},
   {path: 'help', component: HelpInfoComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'student/:id', component: StudentDetailComponent}
+  {path: 'student/:id', component: StudentDetailComponent},
+  {path: 'select-courses/:studentId/:program', component: SelectCoursesComponent}
 ];
 
 @NgModule({

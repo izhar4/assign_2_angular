@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 
 export class CommonService {
     public static studentList:any[] = [];
+    public static studentDetail:any = {};
     baseUrl = environment.baseUrl;
     constructor(private http: HttpClient) { }
 
@@ -29,8 +30,21 @@ export class CommonService {
         CommonService.studentList = list;
     }
 
+    public get studentDetail(){
+        return CommonService.studentDetail;
+    }
+
+    public set studentDetail(v:any){
+        CommonService.studentDetail= v;
+    } 
+
     getStudentById(id:string):Observable<any>{
         const url = this.baseUrl +'getStudent/'+id;
+        return this.http.get(url);
+    }
+
+    getCourseByProgram(program:string):Observable<any>{
+        const url = this.baseUrl + 'course/' + program;
         return this.http.get(url);
     }
 }

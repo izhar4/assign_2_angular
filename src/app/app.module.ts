@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { SelectCoursesComponent } from './select-courses/select-courses.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
     HelpInfoComponent,
     AboutComponent,
     FooterComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    SelectCoursesComponent
   ],
   imports: [
     BrowserModule,
