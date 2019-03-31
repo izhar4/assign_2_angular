@@ -1,2 +1,75 @@
-<h3>Student detail - {{studentDetail?.givenName}} {{studentDetail?.familyName}}, {{studentDetail?.studentId}}</h3>
-<button type="button" class="btn btn-default" routerLink="/students">back to list</button>
+<div class="container" style="min-height: 1800px;">
+<div style="display:flex;">
+  <h3>Student detail - {{studentDetail?.givenName}} {{studentDetail?.familyName}}, {{studentDetail?.studentId}}</h3>
+  &nbsp;&nbsp;<button type="button" class="btn btn-primary" routerLink="/students">back to list</button>
+</div>
+<div>
+  <ul>
+    <li><b>Student ID </b>&nbsp;&nbsp;{{studentDetail?.studentId}}</li>
+    <li><b>Name </b>&nbsp;&nbsp;{{studentDetail?.familyName}}, {{studentDetail?.givenName}}</li>
+    <li><b>Academic program </b>&nbsp;&nbsp;{{studentDetail?.academicProgram}}, level {{ studentDetail?.academicLevel}}</li>
+    <li><b>Grade point average </b>&nbsp;&nbsp;{{studentDetail?.gpa}}</li>
+  </ul>
+</div>
+<br>
+<div>
+  <p>Tentative courses</p>
+  <table>
+    <tr>
+      <th>Term</th>
+      <th>Course</th>
+      <th>Day and Time</th>
+    </tr>
+
+    <tr *ngFor="let course of tentativeCourses">
+      <td>test</td>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+  </table>
+</div>
+<br>
+<div>
+  <p>Confirmed Courses</p>
+  <table>
+    <tr>
+      <th>Term</th>
+      <th>Course</th>
+      <th>Day and Time</th>
+    </tr>
+
+    <tr *ngFor="let course of confirmedCourses">
+      <td>test</td>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+    <tr>
+      <td>test</td>
+      <td>test</td>
+      <td>test</td>
+    </tr>
+  </table>
+</div>
+<br>
+<div>
+  <p>Course history ({{studentDetail?.credits?.length}} credits)</p>
+  <table>
+      <tr>
+        <th>Term</th>
+        <th>Grade</th>
+        <th>Course</th>
+      </tr>
+  
+      <tr *ngFor="let credit of studentDetail?.credits">
+        <td>{{credit?.termCompleted}}</td>
+        <td>{{credit?.gradeEarned}}</td>
+        <td>{{credit?.courseCode}} &nbsp;&nbsp; &nbsp; {{credit?.courseName}}</td>
+      </tr>
+    </table>
+</div>
+</div>

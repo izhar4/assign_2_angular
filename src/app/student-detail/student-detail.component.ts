@@ -8,6 +8,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class StudentDetailComponent implements OnInit {
   studentDetail: any = {};
+  tentativeCourses:any= [];
+  confirmedCourses:any = [];
   // studentId: string = '';
   constructor(private _commonService: CommonService, private _route: ActivatedRoute) { }
 
