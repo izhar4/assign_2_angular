@@ -25,17 +25,21 @@ export class StudentDetailComponent implements OnInit {
           this.studentDetail = res.data;
           this._commonService.studentDetail = this.studentDetail;
           this.tentativeCourses = this.studentDetail.coursesSaved || [];
-          this.mapCourse();
+          this.confirmedCourses = this.studentDetail.coursesConfirmed || [];
+          this.mapCourse(this.tentativeCourses);
+          this.mapCourse(this.confirmedCourses);
         }
       })
     } else {
       this.tentativeCourses = this.studentDetail.coursesSaved || [];
-      this.mapCourse();
+      this.confirmedCourses = this.studentDetail.coursesConfirmed || [];
+      this.mapCourse(this.confirmedCourses);
+      this.mapCourse(this.tentativeCourses);
     }
   }
 
-  mapCourse(){
-    this.tentativeCourses.forEach(course => {
+  mapCourse(courses){
+    courses.forEach(course => {
       Object.keys(course).forEach(key => {
         if (course[key] === 'Y') {
           const day = course[key];

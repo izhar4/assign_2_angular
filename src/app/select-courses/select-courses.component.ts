@@ -14,6 +14,7 @@ export class SelectCoursesComponent implements OnInit {
   courseList: any[] = []
   days = { classMon: 'Monday', classTue: 'Tuesday', classWed: 'Wednesday', classThu: 'Thursday', classFri: 'Friday' };
   savedCourses: any[] = [];
+  message = '';
   constructor(private _route: ActivatedRoute, private _commonService: CommonService) { }
 
   ngOnInit() {
@@ -78,6 +79,11 @@ export class SelectCoursesComponent implements OnInit {
     this._commonService.saveCourses(this.savedCourses, this.studentId).subscribe(res => {
       if (res.data) {
         this._commonService.studentDetail = res.data;
+        this.message = res.message;
+        setTimeout(()=>{
+          this.message = '';
+        },3000);
+        this.clear();
       }
     })
   }
@@ -95,6 +101,19 @@ export class SelectCoursesComponent implements OnInit {
         })
       }
     }
+  }
+
+  confirmCourses(){
+    this._commonService.confirmCourse(this.savedCourses, this.studentId).subscribe(res=>{
+      if(res.data){
+        this._commonService.studentDetail = res.data;
+        this.message = res.message;
+        setTimeout(()=>{
+          this.message = '';
+        },3000);
+        this.clear();
+      }
+    })
   }
 
 }

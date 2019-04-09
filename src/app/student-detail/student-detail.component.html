@@ -45,9 +45,9 @@
     </tr>
 
     <tr *ngFor="let course of confirmedCourses">
-      <td>test</td>
-      <td>test</td>
-      <td>test</td>
+      <td>{{course?.term}}</td>
+      <td>{{course?.courseCode}}- {{course?.section}}</td>
+      <td>{{course.day}} {{course?.classStart}} to {{course?.classEnd}}</td>
     </tr>
     <tr>
       <td>test</td>

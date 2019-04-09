@@ -7,49 +7,54 @@ import { Observable } from 'rxjs';
 })
 
 export class CommonService {
-    public static studentList:any[] = [];
-    public static studentDetail:any = {};
+    public static studentList: any[] = [];
+    public static studentDetail: any = {};
     baseUrl = environment.baseUrl;
     constructor(private http: HttpClient) { }
 
-    getStudentsList():Observable<any>{
+    getStudentsList(): Observable<any> {
         const url = this.baseUrl + 'getStudentsList';
         return this.http.get(url);
     }
 
-    getCourseList():Observable<any>{
+    getCourseList(): Observable<any> {
         const url = this.baseUrl + 'getCourseList';
         return this.http.get(url);
     }
 
-    public get studentList(){
+    public get studentList() {
         return CommonService.studentList;
     }
 
-    public set studentList(list:any[]){
+    public set studentList(list: any[]) {
         CommonService.studentList = list;
     }
 
-    public get studentDetail(){
+    public get studentDetail() {
         return CommonService.studentDetail;
     }
 
-    public set studentDetail(v:any){
-        CommonService.studentDetail= v;
-    } 
+    public set studentDetail(v: any) {
+        CommonService.studentDetail = v;
+    }
 
-    getStudentById(id:string):Observable<any>{
-        const url = this.baseUrl +'getStudent/'+id;
+    getStudentById(id: string): Observable<any> {
+        const url = this.baseUrl + 'getStudent/' + id;
         return this.http.get(url);
     }
 
-    getCourseByProgram(program:string):Observable<any>{
+    getCourseByProgram(program: string): Observable<any> {
         const url = this.baseUrl + 'course/' + program;
         return this.http.get(url);
     }
 
-    saveCourses(data:any, id):Observable<any>{
-        const url =this.baseUrl+ 'student/cart/'+ id;
-        return this.http.post(url, {courses: data});
+    saveCourses(data: any, id): Observable<any> {
+        const url = this.baseUrl + 'student/cart/' + id;
+        return this.http.post(url, { courses: data });
+    }
+
+    confirmCourse(data: any, id): Observable<any> {
+        const url = this.baseUrl + 'students/' + id + '/cart/save';
+        return this.http.put(url, { courses: data });
     }
 }

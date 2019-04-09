@@ -6,8 +6,11 @@
      <br>
       
     </div>
-    <div style="margin-left: 600px"> <button type="button" class="btn btn-small btn-default" (click)="clear()">clear</button> &nbsp;&nbsp;
-      <button type="button" class="btn btn-small btn-info" (click)="saveCourses()">save for later</button>
+    <div style="margin-left: 600px; display: flex;" > 
+      <button type="button" [disabled]="savedCourses.length === 0" class="btn btn-small btn-default" (click)="clear()">clear</button> &nbsp;&nbsp;
+      <button type="button" [disabled]="savedCourses.length === 0" class="btn btn-small btn-info" (click)="saveCourses()">save for later</button>&nbsp;&nbsp;
+      <button type="button" [disabled]="savedCourses.length === 0" class="btn btn-small btn-info" (click)="confirmCourses()">Confirm as your timetable</button> <span *ngIf="message">{{message}}</span>
+      
     </div>
     <br>
   <div style="display:flex;"> 
